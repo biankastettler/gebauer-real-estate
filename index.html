@@ -243,6 +243,7 @@ section{position:relative}
 .contact-side p{color:#d0cec7;font-size:.92rem}
 .cface{width:76px;height:76px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
 .caddr{font-size:.85rem;color:#bdbbb4;border-top:1px solid var(--line);padding-top:1rem;margin-top:.4rem}
+.caddr a{color:var(--gold2)}.caddr a:hover{text-decoration:underline}
 .caddr b{color:var(--gold2);font-weight:600}
 @media (max-width:1100px){.contact{grid-template-columns:1fr}.contact-side{min-height:420px}}
 /* FOOTER */
@@ -539,7 +540,7 @@ footer{border-top:1px solid var(--line);padding:5rem 0 2.5rem;margin-top:6rem;ba
             <div class="eyebrow" data-i18n="priv_eye">Private Client Service</div>
             <h3 class="h-serif" data-i18n="priv_h">Die besten Objekte stehen nie im Internet.</h3>
             <p data-i18n="priv_p">Registrieren Sie sich für exklusiven Zugang zu Off-Market-Residenzen, Vorab-Exposés und neuen Objekten, bevor sie den Markt erreichen.</p>
-            <div class="caddr"><b>Gebauer Real Estate</b><br>Paradeplatz 5 · 8001 Zürich</div>
+            <div class="caddr"><b>Gebauer Real Estate</b><br>Paradeplatz 5 · 8001 Zürich<br><a href="tel:+41793593689">+41 79 359 36 89</a> · <a href="https://wa.me/41793593689" target="_blank" rel="noopener">WhatsApp</a></div>
           </div>
         </div>
         <div>
@@ -626,7 +627,7 @@ footer{border-top:1px solid var(--line);padding:5rem 0 2.5rem;margin-top:6rem;ba
       <div><h3 data-i18n="imp_op">Betreiber</h3></div>
       <div class="body">
         <p><strong>Gebauer Real Estate</strong><br><span data-i18n="imp_owner">Inhaber: Ronny Gebauer</span><br><span data-i18n="imp_addr">Paradeplatz 5<br>8001 Zürich<br>Schweiz</span></p>
-        <p><span data-i18n="imp_contact">Kontakt</span>: <span>[E-Mail]</span> · <span>[Telefon]</span></p>
+        <p><span data-i18n="imp_contact">Kontakt</span>: <a href="tel:+41793593689">+41 79 359 36 89</a> · <a href="https://wa.me/41793593689" target="_blank" rel="noopener">WhatsApp</a> · <span>[E-Mail]</span></p>
         <div class="note" data-i18n="imp_note">✎ Bitte ergänzen: offizieller Firmenname, Adresse, Registernummer, E-Mail, Telefon.</div>
       </div>
     </div>
@@ -654,7 +655,7 @@ footer{border-top:1px solid var(--line);padding:5rem 0 2.5rem;margin-top:6rem;ba
       <div><img src="logo.png" class="flogo" alt="Gebauer Real Estate"><p data-i18n="f_claim" style="max-width:320px">Private Property &amp; Real Estate. Persönlich betreut von Ronny Gebauer.</p></div>
       <div><h5 data-i18n="nav_dest">Destinationen</h5><div id="fDest"></div></div>
       <div><h5>Gebauer</h5><a href="#properties" data-i18n="nav_props">Immobilien</a><a href="#ronny">Ronny Gebauer</a><a href="#about" data-i18n="nav_about">Über uns</a><a href="#impressum" data-i18n="imp_h">Impressum</a></div>
-      <div><h5 data-i18n="nav_contact">Kontakt</h5><p>Gebauer Real Estate<br>Paradeplatz 5<br>8001 Zürich</p><a href="#contact" data-open-lead="footer" data-i18n="private_access">Private Access</a></div>
+      <div><h5 data-i18n="nav_contact">Kontakt</h5><p>Gebauer Real Estate<br>Paradeplatz 5<br>8001 Zürich</p><a href="tel:+41793593689">+41 79 359 36 89</a><a href="https://wa.me/41793593689" target="_blank" rel="noopener">WhatsApp</a><a href="#contact" data-open-lead="footer" data-i18n="private_access">Private Access</a></div>
     </div>
     <div class="fbot"><span>© <span id="yr"></span> Gebauer Real Estate · Ronny Gebauer</span></div>
   </div>
@@ -749,7 +750,7 @@ const I18N={
  imp_addr:["Paradeplatz 5<br>8001 Zürich<br>Schweiz","Paradeplatz 5<br>8001 Zurich<br>Switzerland"],
  imp_tax:["Registriert als Steuerpflichtiger beim Hauptamt des Staatlichen Steuerdienstes der Ukraine in Kyiv (ГУ ДПС у м. Києві), seit 17.02.2025.","Registered taxpayer with the Main Department of the State Tax Service of Ukraine in Kyiv (ГУ ДПС у м. Києві) since 17 Feb 2025."],
  imp_owner:["Inhaber: Ronny Gebauer","Owner: Ronny Gebauer"],
- imp_contact:["Kontakt","Contact"],imp_note:["✎ Bitte ergänzen: E-Mail, Telefon und – falls vorhanden – UID bzw. Handelsregisternummer.","✎ To complete: email, phone and – if available – UID / commercial register number."],
+ imp_contact:["Kontakt","Contact"],imp_note:["✎ Bitte ergänzen: E-Mail und – falls vorhanden – UID bzw. Handelsregisternummer.","✎ To complete: email and – if available – UID / commercial register number."],
  imp_dis:["Hinweis","Disclaimer"],imp_dis_t:["Alle Angaben zu den Objekten sind unverbindlich und ohne Gewähr. Zwischenverkauf vorbehalten.","All property information is non-binding and without guarantee. Subject to prior sale."],
  f_claim:["Private Property &amp; Real Estate. Persönlich betreut von Ronny Gebauer.","Private Property &amp; Real Estate. Personally represented by Ronny Gebauer."],
  partner_eye:["In Zusammenarbeit mit","In partnership with"],
