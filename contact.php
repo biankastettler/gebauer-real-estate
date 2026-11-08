@@ -2,8 +2,8 @@
 // Gebauer Real Estate – Lead-Empfang (Pop-up & Kontaktformular)
 // 1) Speichert jede Anfrage in leads/leads.csv (gesperrt, nur via Hostinger-Dateimanager abrufbar)
 // 2) Schickt eine E-Mail an LEAD_TO (unten eintragen)
-const LEAD_TO   = '';                                   // z. B. 'ronny@gebauer-property.com'
-const LEAD_FROM = 'noreply@gebauer-property.com';
+const LEAD_TO   = 'info@gebauer-property.com';
+const LEAD_FROM = 'info@gebauer-property.com';
 
 header('Content-Type: application/json; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo '{"ok":false}'; exit; }

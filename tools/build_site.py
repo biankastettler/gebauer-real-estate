@@ -75,6 +75,7 @@ def head_block(lang):
         "logo": f"https://{host}/logo.png",
         "image": og_img,
         "telephone": "+41 79 359 36 89",
+        "email": "info@gebauer-property.com",
         "address": {"@type": "PostalAddress", "streetAddress": "Paradeplatz 5", "postalCode": "8001",
                     "addressLocality": "Zürich", "addressCountry": "CH"},
         "founder": {"@type": "Person", "name": "Ronny Gebauer"},
