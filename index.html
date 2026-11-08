@@ -232,6 +232,19 @@ section{position:relative}
 .private h2{font-size:clamp(2.4rem,5vw,4.8rem);margin:1rem auto 1.4rem;max-width:16ch}
 .private p{max-width:560px;margin:0 auto 2.4rem;color:#c9c7c0}
 
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1.15fr;border:1px solid var(--line);background:var(--panel)}
+.contact-side{position:relative;overflow:hidden;min-height:620px}
+.contact-side .private-bg{position:absolute;inset:0;opacity:1}
+.contact-side .private-bg .ph-img,.contact-side .private-bg svg{width:100%;height:100%;object-fit:cover;filter:none}
+.contact-side:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.35),rgba(11,11,12,.92) 70%)}
+.contact-side .in{position:absolute;left:2.6rem;right:2.6rem;bottom:2.6rem;z-index:2;display:flex;flex-direction:column;gap:.9rem}
+.contact-side h3{font-size:2.4rem;line-height:1.05}
+.contact-side p{color:#d0cec7;font-size:.92rem}
+.cface{width:76px;height:76px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+.caddr{font-size:.85rem;color:#bdbbb4;border-top:1px solid var(--line);padding-top:1rem;margin-top:.4rem}
+.caddr b{color:var(--gold2);font-weight:600}
+@media (max-width:1100px){.contact{grid-template-columns:1fr}.contact-side{min-height:420px}}
 /* FOOTER */
 footer{border-top:1px solid var(--line);padding:5rem 0 2.5rem;margin-top:6rem;background:#09090a}
 .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem}
@@ -514,12 +527,44 @@ footer{border-top:1px solid var(--line);padding:5rem 0 2.5rem;margin-top:6rem;ba
 
   <section class="sec" id="contact" style="padding-top:2rem">
     <div class="wrap">
-      <div class="private reveal">
-        <div class="private-bg" id="privBg"></div>
-        <div class="eyebrow" data-i18n="priv_eye">Private Client Service</div>
-        <h2 class="h-serif" data-i18n="priv_h">Die besten Objekte stehen nie im Internet.</h2>
-        <p data-i18n="priv_p">Registrieren Sie sich für exklusiven Zugang zu Off-Market-Residenzen, Vorab-Exposés und neuen Objekten, bevor sie den Markt erreichen.</p>
-        <button class="btn btn-gold" data-open-lead="cta"><span data-i18n="priv_btn">Jetzt Zugang anfordern</span><i class="arrow"></i></button>
+      <div class="sec-head reveal">
+        <div><div class="eyebrow" data-i18n="c_eye">Kontakt</div><h2 class="h-serif" data-i18n="c_h">Sprechen Sie direkt mit Ronny Gebauer</h2></div>
+        <p data-i18n="c_p">Ob Kauf, Verkauf, Investment oder Off-Market-Zugang – schreiben Sie uns. Ronny Gebauer meldet sich persönlich, in der Regel innerhalb von 24 Stunden.</p>
+      </div>
+      <div class="contact reveal" id="contactBox">
+        <div class="contact-side">
+          <div class="private-bg" id="privBg"></div>
+          <div class="in">
+            <img class="cface" src="ronny-face.jpg" alt="Ronny Gebauer">
+            <div class="eyebrow" data-i18n="priv_eye">Private Client Service</div>
+            <h3 class="h-serif" data-i18n="priv_h">Die besten Objekte stehen nie im Internet.</h3>
+            <p data-i18n="priv_p">Registrieren Sie sich für exklusiven Zugang zu Off-Market-Residenzen, Vorab-Exposés und neuen Objekten, bevor sie den Markt erreichen.</p>
+            <div class="caddr"><b>Gebauer Real Estate</b><br>Paradeplatz 5 · 8001 Zürich</div>
+          </div>
+        </div>
+        <div>
+          <form class="lead-form" id="contactForm" novalidate>
+            <input type="text" name="bot" hidden tabindex="-1" autocomplete="off">
+            <div class="eyebrow" data-i18n="c_eye">Kontakt</div>
+            <h4 data-i18n="lf_h">Registrieren Sie Ihr Interesse</h4>
+            <p class="sub" data-i18n="lf_sub">Antwort innerhalb von 24 Stunden.</p>
+            <div class="fld"><label data-i18n="l_name">Name</label><input name="name" autocomplete="name" required></div>
+            <div class="fld2">
+              <div class="fld"><label data-i18n="l_email">E-Mail</label><input name="email" type="email" autocomplete="email" required></div>
+              <div class="fld"><label data-i18n="l_phone">Telefon / WhatsApp</label><input name="phone" type="tel" autocomplete="tel" placeholder="+41 …"></div>
+            </div>
+            <div class="fld2">
+              <div class="fld"><label data-i18n="l_interest">Ich möchte</label><select name="interest" id="cInterest"></select></div>
+              <div class="fld"><label data-i18n="f_budget">Budget</label><select name="budget" id="cBudget"></select></div>
+            </div>
+            <div class="fld"><label data-i18n="l_dest">Wunsch-Destinationen</label><div class="chips-sm" id="cDest"></div></div>
+            <div class="fld"><label data-i18n="l_msg">Nachricht (optional)</label><textarea name="message" rows="3"></textarea></div>
+            <label class="consent"><input type="checkbox" name="consent" required><span data-i18n="l_consent">Ich bin einverstanden, dass Gebauer Real Estate mich zu passenden Objekten kontaktiert. Widerruf jederzeit möglich.</span></label>
+            <div class="err" id="cErr"></div>
+            <button class="btn btn-gold" type="submit" style="justify-content:center"><span data-i18n="c_submit">Nachricht senden</span><i class="arrow"></i></button>
+          </form>
+          <div class="ok"><div class="ring"></div><h4 data-i18n="ok_h">Vielen Dank</h4><p id="cOkP" data-i18n="ok_p">Ronny Gebauer meldet sich persönlich bei Ihnen – in der Regel innerhalb von 24 Stunden.</p><button class="btn btn-line" type="button" id="cAgain" style="margin-top:1rem"><span data-i18n="c_again">Weitere Nachricht</span></button></div>
+        </div>
       </div>
     </div>
   </section>
@@ -679,6 +724,9 @@ const I18N={
  cta_meet:["Termin mit Ronny Gebauer","Meet Ronny Gebauer"],cta_story:["Seine Geschichte","His story"],
  priv_eye:["Private Client Service","Private Client Service"],priv_h:["Die besten Objekte stehen nie im Internet.","The best properties are never online."],
  priv_p:["Registrieren Sie sich für exklusiven Zugang zu Off-Market-Residenzen, Vorab-Exposés und neuen Objekten, bevor sie den Markt erreichen.","Register for exclusive access to off-market residences, early brochures and new listings before they reach the market."],
+ c_eye:["Kontakt","Contact"],c_h:["Sprechen Sie direkt mit Ronny Gebauer","Speak directly with Ronny Gebauer"],
+ c_p:["Ob Kauf, Verkauf, Investment oder Off-Market-Zugang – schreiben Sie uns. Ronny Gebauer meldet sich persönlich, in der Regel innerhalb von 24 Stunden.","Buying, selling, investing or off-market access – write to us. Ronny Gebauer will reply personally, usually within 24 hours."],
+ c_submit:["Nachricht senden","Send message"],c_again:["Weitere Nachricht","Send another message"],
  priv_btn:["Jetzt Zugang anfordern","Request access now"],
  ab_eye:["Über Gebauer Real Estate","About Gebauer Real Estate"],ab_h1:["Ein Name. Ein Versprechen.","One name. One promise."],
  ab_p:["Gebauer Real Estate steht für eine Person: Ronny Gebauer. Hinter jedem Objekt in diesem Portfolio steht sein Name – und seine persönliche Verantwortung.","Gebauer Real Estate stands for one person: Ronny Gebauer. Every property in this portfolio carries his name – and his personal commitment."],
@@ -1037,13 +1085,13 @@ function buildControls(){
  const typeList=[['all',T('anyType')],...Object.entries(TYPES).map(([k,v])=>[k,v[LANG==='de'?0:1]])];
  opts($('#qType'),typeList,F.type);
  const bl=BUDGETS.map(b=>[b[0],BUDGET_LBL[b[0]][LANG==='de'?0:1]]);
- opts($('#qBudget'),bl,F.budget);opts($('#fBudget'),bl,F.budget);opts($('#lBudget'),bl,'all');
+ opts($('#qBudget'),bl,F.budget);opts($('#fBudget'),bl,F.budget);opts($('#lBudget'),bl,'all');opts($('#cBudget'),bl,'all');
  opts($('#fBeds'),[[0,T('bedsMin')],[2,'2+'],[3,'3+'],[4,'4+'],[5,'5+']],F.beds);
  opts($('#fSort'),[['feat',T('sortF')],['pa',T('sortPa')],['pd',T('sortPd')],['area',T('sortA')]],F.sort);
- opts($('#lInterest'),[['buy',T('iBuy')],['invest',T('iInvest')],['sell',T('iSell')],['rent',T('iRent')]],'buy');
+ opts($('#lInterest'),[['buy',T('iBuy')],['invest',T('iInvest')],['sell',T('iSell')],['rent',T('iRent')]],'buy');opts($('#cInterest'),[['buy',T('iBuy')],['invest',T('iInvest')],['sell',T('iSell')],['rent',T('iRent')]],'buy');
  $('#fCountry').innerHTML=[['all',T('all')],...Object.entries(COUNTRIES).map(([k,v])=>[k,v[LANG==='de'?0:1]])].map(([k,l])=>`<button class="chip${F.country===k?' on':''}" data-c="${k}">${l}</button>`).join('');
  $('#fType').innerHTML=[['all',T('all')],...Object.entries(TYPES).map(([k,v])=>[k,v[LANG==='de'?0:1]])].map(([k,l])=>`<button class="chip${F.type===k?' on':''}" data-t="${k}">${l}</button>`).join('');
- $('#lDest').innerHTML=Object.keys(CITIES).map(c=>`<button type="button" class="chip" data-d="${c}">${cityName(c)}</button>`).join('');
+ $('#lDest').innerHTML=$('#cDest').innerHTML=Object.keys(CITIES).map(c=>`<button type="button" class="chip" data-d="${c}">${cityName(c)}</button>`).join('');
 }
 function filtered(){
  const b=BUDGETS.find(x=>x[0]===F.budget),q=F.text.trim().toLowerCase();
@@ -1144,16 +1192,21 @@ async function saveLead(data){
  if(!/claude|localhost|^$/.test(location.hostname)){try{const fd=new URLSearchParams({'form-name':'lead',...data});await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:fd.toString()});saved=true}catch(e){}}
  try{const k='gre_leads_local',a=JSON.parse(localStorage.getItem(k)||'[]');a.push(data);localStorage.setItem(k,JSON.stringify(a))}catch(e){}
  return saved}
-$('#leadForm').addEventListener('submit',async e=>{
- e.preventDefault();const f=e.target;if(f.bot.value)return;
- const name=f.name.value.trim(),email=f.email.value.trim();
- if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)||!f.consent.checked){$('#lErr').textContent=T('errReq');return}
- const data={name,email,phone:f.phone.value.trim(),interest:f.interest.value,budget:f.budget.value,destinations:$$('#lDest .chip.on').map(c=>c.dataset.d).join(', '),
-  message:f.message.value.trim(),property:leadCtx.prop?leadCtx.prop.id:'',source:leadCtx.src,lang:LANG,ts:new Date().toISOString()};
- const btn=f.querySelector('[type=submit]');btn.style.opacity=.6;
- await saveLead(data);btn.style.opacity=1;
- $('#okP').textContent=(LANG==='de'?`Danke, ${name.split(' ')[0]}. `:`Thank you, ${name.split(' ')[0]}. `)+T('ok_p');
- $('#leadModal').classList.add('done');f.reset();$$('#lDest .chip').forEach(c=>c.classList.remove('on'))});
+function bindLead(formSel,chipsSel,errSel,okSel,boxSel,ctx){
+ $(formSel).addEventListener('submit',async e=>{
+  e.preventDefault();const f=e.target;if(f.bot.value)return;
+  const name=f.name.value.trim(),email=f.email.value.trim();
+  if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)||!f.consent.checked){$(errSel).textContent=T('errReq');return}
+  $(errSel).textContent='';const c=ctx();
+  const data={name,email,phone:f.phone.value.trim(),interest:f.interest.value,budget:f.budget.value,destinations:$$(chipsSel+' .chip.on').map(c=>c.dataset.d).join(', '),
+   message:f.message.value.trim(),property:c.prop?c.prop.id:'',source:c.src,lang:LANG,ts:new Date().toISOString()};
+  const btn=f.querySelector('[type=submit]');btn.style.opacity=.6;
+  await saveLead(data);btn.style.opacity=1;
+  $(okSel).textContent=(LANG==='de'?`Danke, ${name.split(' ')[0]}. `:`Thank you, ${name.split(' ')[0]}. `)+T('ok_p');
+  $(boxSel).classList.add('done');f.reset();$$(chipsSel+' .chip').forEach(c=>c.classList.remove('on'))})}
+bindLead('#leadForm','#lDest','#lErr','#okP','#leadModal',()=>leadCtx);
+bindLead('#contactForm','#cDest','#cErr','#cOkP','#contactBox',()=>({src:'contact',prop:null}));
+$('#cAgain').onclick=()=>$('#contactBox').classList.remove('done');
 
 /* auto popup like the reference: after delay, on scroll depth, or exit intent – once per session */
 function maybeAuto(){if(autoShown)return;let seen=false;try{seen=sessionStorage.getItem('gre_lead_seen')}catch(e){}if(seen){autoShown=true;return}
