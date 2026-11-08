@@ -1,0 +1,42 @@
+# Gebauer Real Estate – Hostinger (Apache/LiteSpeed)
+# Hauptdomain: https://gebauer-property.com  ·  .ch und gebauer-realestate.com leiten weiter
+Options -Indexes
+RewriteEngine On
+
+# gebauer-property.ch -> .com (Schweizer Domain landet auf Deutsch)
+RewriteCond %{HTTP_HOST} ^(www\.)?gebauer-property\.ch$ [NC]
+RewriteRule ^(fr|it)(/.*)?$ https://gebauer-property.com/$1/ [R=301,L]
+RewriteCond %{HTTP_HOST} ^(www\.)?gebauer-property\.ch$ [NC]
+RewriteRule ^ https://gebauer-property.com/de/ [R=301,L]
+
+# optional: gebauer-realestate.com -> .com
+RewriteCond %{HTTP_HOST} ^(www\.)?gebauer-realestate\.com$ [NC]
+RewriteRule ^(.*)$ https://gebauer-property.com/$1 [R=301,L]
+
+# www -> ohne www, http -> https
+RewriteCond %{HTTP_HOST} ^www\.gebauer-property\.com$ [NC]
+RewriteRule ^(.*)$ https://gebauer-property.com/$1 [R=301,L]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteCond %{HTTP_HOST} ^gebauer-property\.com$ [NC]
+RewriteRule ^(.*)$ https://gebauer-property.com/$1 [R=301,L]
+
+# index.html nicht doppelt indexieren
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+
+# interne Ordner/Dateien sperren
+RewriteRule ^(src|tools|leads|dist)(/|$) - [F,L]
+RewriteRule ^(\.git|README\.md|netlify\.toml|\.gitignore) - [F,L]
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(jpg|jpeg|png|webp|ico|svg)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=300"
+  </FilesMatch>
+</IfModule>
+ErrorDocument 404 /index.html

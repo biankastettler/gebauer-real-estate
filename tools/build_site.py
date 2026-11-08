@@ -1,6 +1,6 @@
 """Baut die mehrsprachige, SEO-optimierte Website aus src/index.html.
 
-Hauptdomain: gebauer-property.com (alle Sprachen). gebauer-property.ch leitet per 301 weiter (siehe netlify.toml).
+Hauptdomain: gebauer-property.com (alle Sprachen). gebauer-property.ch leitet per 301 weiter (siehe .htaccess).
 Ausgabe (im Repo-Root, direkt von Netlify / GitHub Pages ausgeliefert):
   /index.html      English   -> https://gebauer-property.com/
   /de/index.html   Deutsch   -> https://gebauer-property.com/de/   (gebauer-property.ch landet hier)

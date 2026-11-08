@@ -21,7 +21,8 @@ Jede Sprachversion hat `canonical`, `hreflang`-Verweise, eigene Meta-Description
 - `tools/build_site.py` – erzeugt `index.html`, `de/`, `fr/`, `it/`, `sitemap.xml`, `robots.txt`
 - `tools/build_bundle.py` – erzeugt `dist/gebauer-real-estate.html` (eine Offline-Datei mit allen Bildern)
 - `images/` – Objektbilder, benannt nach Referenz (z. B. `LU-01.jpg`)
-- `netlify.toml` – Weiterleitungen (.ch → .com, www → ohne www)
+- `.htaccess` – Weiterleitungen (.ch → .com/de/, www → ohne www, https), Sperre interner Ordner
+- `contact.php` – empfängt Pop-up/Kontakt-Anfragen → `leads/leads.csv` (+ E-Mail, wenn `LEAD_TO` gesetzt)
 
 Nach jeder Änderung an `src/index.html`:
 ```
@@ -30,10 +31,10 @@ python3 tools/build_bundle.py
 ```
 
 ## Leads
-Pop-up und Kontaktformular sind für **Netlify Forms** vorbereitet (`form name="lead"`).
-Nach dem Deploy erscheinen Anfragen im Netlify-Dashboard unter *Forms* (E-Mail-Benachrichtigung dort einstellbar).
+Pop-up und Kontaktformular senden an `contact.php`. Jede Anfrage landet in `leads/leads.csv` (öffentlich gesperrt, im Hostinger-Dateimanager herunterladbar).
+E-Mail-Benachrichtigung: in `contact.php` bei `LEAD_TO` die Empfängeradresse eintragen.
 
-## Deploy (Netlify)
-1. Netlify → *Add new site* → *Import from GitHub* → `biankastettler/gebauer-real-estate` (Build command leer, Publish directory `.`)
-2. *Domain management* → Primary domain `gebauer-property.com`, Domain-Aliase `gebauer-property.ch` (+ `www.`-Varianten)
-3. DNS bei Hostinger: `A @ 75.2.60.5` und `CNAME www <site>.netlify.app` – für beide Domains
+## Hosting (Hostinger)
+- hPanel → Website `gebauer-property.com` → *Erweitert → GIT*: Repository `https://github.com/biankastettler/gebauer-real-estate.git`, Branch `main`, Verzeichnis leer (= public_html). *Auto-Deployment* aktivieren und die Webhook-URL in GitHub (Settings → Webhooks) eintragen → jeder Push geht automatisch live.
+- `gebauer-property.ch` als *Parked Domain / Alias* auf dieselbe Website legen – die `.htaccess` leitet auf `/de/` weiter.
+- SSL in hPanel für beide Domains aktivieren.

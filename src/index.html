@@ -1117,7 +1117,7 @@ async function saveLead(data){
   if(uid){const ref=DB.doc('leads/'+uid);let prev=null;try{prev=(await ref.get())}catch(e){}
    const hist=(prev&&prev.data&&prev.data().history)||(prev&&prev.history)||[];
    await ref.set({...data,history:[...hist,data].slice(-20)});saved=true}}catch(e){console.warn('db',e)}}
- if(!/claude|localhost|^$/.test(location.hostname)){try{const fd=new URLSearchParams({'form-name':'lead',...data});await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:fd.toString()});saved=true}catch(e){}}
+ if(/gebauer-/.test(location.hostname)){try{const r=await fetch('/contact.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});saved=r.ok}catch(e){}}
  try{const k='gre_leads_local',a=JSON.parse(localStorage.getItem(k)||'[]');a.push(data);localStorage.setItem(k,JSON.stringify(a))}catch(e){}
  return saved}
 function bindLead(formSel,chipsSel,errSel,okSel,boxSel,ctx){
