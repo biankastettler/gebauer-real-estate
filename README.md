@@ -8,7 +8,7 @@ Partner: R&P Business Partners, Kyiv
 - `images/` – Objektbilder, benannt nach Objekt-Referenz (z. B. `LU-01.jpg`)
 - `logo.png`, `mark.png`, `favicon.png` – Gebauer-Logo (freigestellt)
 - `rp-partners.png` – Logo R&P Business Partners
-- `ronny.jpg`, `ronny-face.jpg` – Portrait Ronny Gebauer
+- `ronny-luzern.jpg`, `ronny-face-luzern.jpg` – Portrait Ronny Gebauer
 - `tools/build_bundle.py` – erzeugt `dist/gebauer-real-estate.html` (eine Datei, alle Bilder eingebettet, offline lauffähig)
 
 ## Objekte bearbeiten
