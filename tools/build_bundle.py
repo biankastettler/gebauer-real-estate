@@ -12,7 +12,7 @@ for f in sorted(os.listdir(os.path.join(root,'images'))):
     assets['images/'+f]=enc('images/'+f,1100,68)
 for f,w in [('logo.png',600),('mark.png',260),('rp-partners.png',700),('ronny-luzern.jpg',900),('ronny-about.jpg',900),('ronny-face-luzern.jpg',160),('favicon.png',64),('favicon-32.png',32),('favicon-16.png',16),('apple-touch-icon.png',180)]:
     assets[f]=enc(f,w,80)
-html=open(os.path.join(root,'index.html'),encoding='utf-8').read()
+html=open(os.path.join(root,'src','index.html'),encoding='utf-8').read()
 html=html.replace('<script>\n','<script>window.ASSET='+json.dumps(assets)+';</script>\n<script>\n',1)
 os.makedirs(os.path.dirname(out),exist_ok=True)
 open(out,'w',encoding='utf-8').write(html)
