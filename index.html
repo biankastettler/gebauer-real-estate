@@ -206,13 +206,13 @@ section{position:relative}
 .ronny-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:6rem;align-items:center}
 .portrait{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 30%,#2a241a,#0e0d0b 70%);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .portrait:before{content:"";position:absolute;inset:18px;border:1px solid rgba(201,165,101,.25)}
-.portrait img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.portrait img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%}
 .portrait:before{z-index:1}
 .portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(11,11,12,.55))}
 .portrait-tag{z-index:2}
 .about-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 55%;border:1px solid var(--line);margin-top:1.6rem}
 .portrait .ph{position:absolute;bottom:2.2rem;left:0;right:0;text-align:center;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
-.portrait-tag{position:absolute;right:1.4rem;bottom:1.4rem;white-space:nowrap;background:var(--gold);color:#0b0b0c;padding:1.1rem 1.4rem;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;line-height:1.5}
+.portrait-tag{position:absolute;right:1.4rem;top:1.4rem;white-space:nowrap;background:var(--gold);color:#0b0b0c;padding:1.1rem 1.4rem;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;line-height:1.5}
 .portrait-tag b{display:block;font-family:var(--serif);font-size:2.2rem;letter-spacing:0;font-weight:500;line-height:1}
 .ronny h2{font-size:clamp(3.2rem,6.4vw,6.4rem);margin:1rem 0 .4rem}
 .ronny .role{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--silver)}
@@ -368,7 +368,7 @@ footer{border-top:1px solid var(--line);padding:5rem 0 2.5rem;margin-top:6rem;ba
   .prose{grid-template-columns:1fr;gap:1.4rem}
   .filters{position:static}
   .fld2{grid-template-columns:1fr}
-  .portrait-tag{right:1rem;bottom:1rem}
+  .portrait-tag{right:1rem;top:1rem}
   .private{padding:4rem 1.4rem}
   .fgrid{grid-template-columns:1fr}
   .lang-desk{display:none}
@@ -502,7 +502,7 @@ footer{border-top:1px solid var(--line);padding:5rem 0 2.5rem;margin-top:6rem;ba
   <section class="sec ronny" id="ronny">
     <div class="wrap ronny-grid">
       <div class="portrait reveal">
-        <img class="photo" src="ronny-luzern.jpg" alt="Ronny Gebauer">
+        <img class="photo" src="ronny-about.jpg" alt="Ronny Gebauer">
         <div class="portrait-tag"><b>12</b><span data-i18n="tag_cities">Destinationen<br>in Europa</span></div>
       </div>
       <div class="reveal">
