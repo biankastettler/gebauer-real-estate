@@ -27,13 +27,13 @@ OUT = {'en': 'index.html', 'de': 'de/index.html', 'fr': 'fr/index.html', 'it': '
 LOCALE = {'de': 'de_CH', 'en': 'en_GB', 'fr': 'fr_CH', 'it': 'it_CH'}
 
 META = {
-    'de': ('Gebauer Real Estate – Luxusimmobilien in Europa | Ronny Gebauer, Zürich',
+    'de': ('Gebauer Property – Luxusimmobilien in Europa | Ronny Gebauer, Zürich',
            'Ausgewählte Villen, Penthouses und Anlageobjekte in Zürich, Luzern, Tessin, Ibiza, München, Berlin, Budapest und mehr – persönlich betreut von Ronny Gebauer. Off-Market-Zugang auf Anfrage.'),
-    'en': ('Gebauer Real Estate – Luxury Property in Europe | Ronny Gebauer, Zurich',
+    'en': ('Gebauer Property – Luxury Property in Europe | Ronny Gebauer, Zurich',
            'Selected villas, penthouses and investment properties in Zurich, Lucerne, Ticino, Ibiza, Munich, Berlin, Budapest and more – personally represented by Ronny Gebauer. Off-market access on request.'),
-    'fr': ('Gebauer Real Estate – Immobilier de prestige en Europe | Ronny Gebauer, Zurich',
+    'fr': ('Gebauer Property – Immobilier de prestige en Europe | Ronny Gebauer, Zurich',
            'Villas, penthouses et biens de placement sélectionnés à Zurich, Lucerne, au Tessin, à Ibiza, Munich, Berlin, Budapest et plus – accompagnés personnellement par Ronny Gebauer. Accès off-market sur demande.'),
-    'it': ('Gebauer Real Estate – Immobili di prestigio in Europa | Ronny Gebauer, Zurigo',
+    'it': ('Gebauer Property – Immobili di prestigio in Europa | Ronny Gebauer, Zurigo',
            'Ville, attici e immobili da investimento selezionati a Zurigo, Lucerna, in Ticino, a Ibiza, Monaco, Berlino, Budapest e altro – seguiti personalmente da Ronny Gebauer. Accesso off-market su richiesta.'),
 }
 
@@ -70,9 +70,9 @@ def head_block(lang):
     ld = {
         "@context": "https://schema.org",
         "@type": "RealEstateAgent",
-        "name": "Gebauer Real Estate",
+        "name": "Gebauer Property",
         "url": canon,
-        "logo": f"https://{host}/logo.png",
+        "logo": f"https://{host}/logo.png?v=3",
         "image": og_img,
         "telephone": "+41 79 359 36 89",
         "email": "info@gebauer-property.com",
@@ -92,7 +92,7 @@ def head_block(lang):
 <link rel="canonical" href="{canon}">
 {alts}
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Gebauer Real Estate">
+<meta property="og:site_name" content="Gebauer Property">
 <meta property="og:title" content="{H.escape(title, quote=True)}">
 <meta property="og:description" content="{H.escape(desc, quote=True)}">
 <meta property="og:url" content="{canon}">

@@ -1,5 +1,5 @@
 <?php
-// Gebauer Real Estate – Lead-Empfang (Pop-up & Kontaktformular)
+// Gebauer Property – Lead-Empfang (Pop-up & Kontaktformular)
 // 1) Speichert jede Anfrage in leads/leads.csv (gesperrt, nur via Hostinger-Dateimanager abrufbar)
 // 2) Schickt eine E-Mail an LEAD_TO (unten eintragen)
 const LEAD_TO   = 'info@gebauer-property.com';
@@ -31,10 +31,10 @@ if ($fh = @fopen($file, 'a')) {
 }
 
 if (LEAD_TO !== '') {
-  $subj = 'Neue Anfrage Gebauer Real Estate: ' . $d['name'] . ($d['property'] ? ' (' . $d['property'] . ')' : '');
+  $subj = 'Neue Anfrage Gebauer Property: ' . $d['name'] . ($d['property'] ? ' (' . $d['property'] . ')' : '');
   $body = '';
   foreach ($d as $k => $v) { $body .= str_pad($k, 14) . ': ' . $v . "\n"; }
-  $headers = 'From: Gebauer Real Estate <' . LEAD_FROM . ">\r\n" . 'Reply-To: ' . $d['email'] . "\r\n" . "Content-Type: text/plain; charset=utf-8\r\n";
+  $headers = 'From: Gebauer Property <' . LEAD_FROM . ">\r\n" . 'Reply-To: ' . $d['email'] . "\r\n" . "Content-Type: text/plain; charset=utf-8\r\n";
   @mail(LEAD_TO, '=?UTF-8?B?' . base64_encode($subj) . '?=', $body, $headers);
 }
 echo '{"ok":true}';

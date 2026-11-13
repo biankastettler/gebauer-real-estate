@@ -1,4 +1,4 @@
-# Gebauer Real Estate – Website
+# Gebauer Property – Website
 
 Private Property & Real Estate · Ronny Gebauer · Paradeplatz 5, 8001 Zürich · +41 79 359 36 89
 Partner: R&P Business Partners, Kyiv
