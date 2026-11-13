@@ -133,11 +133,11 @@
     + '#gp-cookie p{margin:0 0 12px}#gp-cookie a{color:#c9a96e;cursor:pointer;text-decoration:underline}'
     + '#gp-cookie .b{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}'
     + '#gp-cookie button,#gp-privacy button{cursor:pointer;border-radius:6px;padding:9px 18px;font:inherit;font-weight:600;border:1px solid #c9a96e}'
-    + '#gp-cookie .no{background:transparent;color:#e9e4da}#gp-cookie .ok{background:#c9a96e;color:#0f1114}'
+    + '#gp-cookie .gp-no{display:inline-block!important;background:transparent;color:#e9e4da}#gp-cookie .gp-ok{display:inline-block!important;background:#c9a96e;color:#0f1114}'
     + '#gp-privacy{position:fixed;inset:0;z-index:2147483001;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:16px}'
     + '#gp-privacy .in{background:#0f1114;color:#e9e4da;border:1px solid rgba(201,169,110,.35);border-radius:10px;max-width:760px;width:100%;max-height:85vh;overflow:auto;padding:28px;font-size:14px;line-height:1.6}'
     + '#gp-privacy h2{margin:0 0 14px;font-size:22px;color:#c9a96e}#gp-privacy h3{margin:18px 0 6px;font-size:15px;color:#c9a96e}#gp-privacy p{margin:0}#gp-privacy a{color:#c9a96e}'
-    + '#gp-privacy .x{margin-top:22px;background:#c9a96e;color:#0f1114}'
+    + '#gp-privacy .gp-x{display:inline-block!important;margin-top:22px;background:#c9a96e;color:#0f1114}'
     + '.gp-flinks a{cursor:pointer;margin-left:14px}';
   var cssDone = false;
   function css() {
@@ -155,8 +155,8 @@
     d.id = 'gp-privacy';
     d.setAttribute('role', 'dialog');
     d.setAttribute('aria-modal', 'true');
-    d.innerHTML = '<div class="in">' + ptext + '<button class="x" type="button">' + t.close + '</button></div>';
-    d.addEventListener('click', function (e) { if (e.target === d || e.target.className === 'x') d.remove(); });
+    d.innerHTML = '<div class="in">' + ptext + '<button class="gp-x" type="button">' + t.close + '</button></div>';
+    d.addEventListener('click', function (e) { if (e.target === d || e.target.className === 'gp-x') d.remove(); });
     document.body.appendChild(d);
   }
 
@@ -169,8 +169,8 @@
     d.setAttribute('aria-live', 'polite');
     d.innerHTML = '<p>' + (SWISS ? t.chTxt : t.txt) + ' <a data-gp="privacy">' + t.privacy + '</a></p><div class="b"><button class="no" type="button">' + t.no + '</button><button class="ok" type="button">' + t.ok + '</button></div>';
     d.querySelector('[data-gp="privacy"]').onclick = privacy;
-    d.querySelector('.ok').onclick = function () { save('granted'); d.remove(); window['ga-disable-' + GA_ID] = false; loadGA(); };
-    d.querySelector('.no').onclick = function () { save('denied'); d.remove(); disableGA(); };
+    d.querySelector('.gp-ok').onclick = function () { save('granted'); d.remove(); window['ga-disable-' + GA_ID] = false; loadGA(); };
+    d.querySelector('.gp-no').onclick = function () { save('denied'); d.remove(); disableGA(); };
     document.body.appendChild(d);
   }
 
