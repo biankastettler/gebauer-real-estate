@@ -167,7 +167,7 @@
     d.id = 'gp-cookie';
     d.setAttribute('role', 'dialog');
     d.setAttribute('aria-live', 'polite');
-    d.innerHTML = '<p>' + (SWISS ? t.chTxt : t.txt) + ' <a data-gp="privacy">' + t.privacy + '</a></p><div class="b"><button class="no" type="button">' + t.no + '</button><button class="ok" type="button">' + t.ok + '</button></div>';
+    d.innerHTML = '<p>' + (SWISS ? t.chTxt : t.txt) + ' <a data-gp="privacy">' + t.privacy + '</a></p><div class="b"><button class="gp-no" type="button">' + t.no + '</button><button class="gp-ok" type="button">' + t.ok + '</button></div>';
     d.querySelector('[data-gp="privacy"]').onclick = privacy;
     d.querySelector('.gp-ok').onclick = function () { save('granted'); d.remove(); window['ga-disable-' + GA_ID] = false; loadGA(); };
     d.querySelector('.gp-no').onclick = function () { save('denied'); d.remove(); disableGA(); };
