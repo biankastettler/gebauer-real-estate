@@ -104,7 +104,7 @@ def head_block(lang):
 <script>window.PAGE_LANG="{lang}";window.LANG_URLS={langs_js};window.BASE="{'' if lang == 'en' else '../'}";</script>'''
 
 
-ASSET_RE = re.compile(r'((?:src|href)=")(?!https?:|data:|#|mailto:|tel:|/|\.\./|\$\{)([^"]+\.(?:png|jpe?g|ico|webmanifest|webp|svg))"')
+ASSET_RE = re.compile(r'((?:src|href)=")(?!https?:|data:|#|mailto:|tel:|/|\.\./|\$\{)([^"]+\.(?:png|jpe?g|ico|webmanifest|webp|svg)(?:\?[^"]*)?)"')
 
 
 def build(lang, I):
