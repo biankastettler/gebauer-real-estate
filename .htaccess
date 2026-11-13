@@ -1,4 +1,4 @@
-# Gebauer Real Estate – Hostinger (Apache/LiteSpeed)
+# Gebauer Property – Hostinger (Apache/LiteSpeed)
 # Hauptdomain: https://gebauer-property.com  ·  .ch und gebauer-realestate.com leiten weiter
 Options -Indexes
 RewriteEngine On
@@ -7,7 +7,7 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^(www\.)?gebauer-property\.ch$ [NC]
 RewriteRule ^(fr|it)(/.*)?$ https://gebauer-property.com/$1/ [R=301,L]
 RewriteCond %{HTTP_HOST} ^(www\.)?gebauer-property\.ch$ [NC]
-RewriteRule ^ https://gebauer-property.com/de/ [R=301,L]
+RewriteRule ^ https://gebauer-property.com/ [R=301,L]
 
 # optional: gebauer-realestate.com -> .com
 RewriteCond %{HTTP_HOST} ^(www\.)?gebauer-realestate\.com$ [NC]
@@ -20,6 +20,9 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !=https
 RewriteCond %{HTTP_HOST} ^gebauer-property\.com$ [NC]
 RewriteRule ^(.*)$ https://gebauer-property.com/$1 [R=301,L]
+
+# Deutsch ist Standard unter / – alte /de/-Links weiterleiten
+RewriteRule ^de(/.*)?$ https://gebauer-property.com/ [R=301,L]
 
 # index.html nicht doppelt indexieren
 RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]

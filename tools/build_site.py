@@ -2,8 +2,8 @@
 
 Hauptdomain: gebauer-property.com (alle Sprachen). gebauer-property.ch leitet per 301 weiter (siehe .htaccess).
 Ausgabe (im Repo-Root, direkt von Netlify / GitHub Pages ausgeliefert):
-  /index.html      English   -> https://gebauer-property.com/
-  /de/index.html   Deutsch   -> https://gebauer-property.com/de/   (gebauer-property.ch landet hier)
+  /index.html      Deutsch   -> https://gebauer-property.com/      (Standard, gebauer-property.ch landet hier)
+  /en/index.html   English   -> https://gebauer-property.com/en/
   /fr/index.html   Français  -> https://gebauer-property.com/fr/
   /it/index.html   Italiano  -> https://gebauer-property.com/it/
   /sitemap.xml, /robots.txt
@@ -17,13 +17,13 @@ SRC = open(os.path.join(ROOT, 'src', 'index.html'), encoding='utf-8').read()
 
 DOMAIN = 'https://gebauer-property.com'
 URLS = {
-    'en': DOMAIN + '/',
-    'de': DOMAIN + '/de/',
+    'de': DOMAIN + '/',
+    'en': DOMAIN + '/en/',
     'fr': DOMAIN + '/fr/',
     'it': DOMAIN + '/it/',
 }
-X_DEFAULT = URLS['en']
-OUT = {'en': 'index.html', 'de': 'de/index.html', 'fr': 'fr/index.html', 'it': 'it/index.html'}
+X_DEFAULT = URLS['de']
+OUT = {'de': 'index.html', 'en': 'en/index.html', 'fr': 'fr/index.html', 'it': 'it/index.html'}
 LOCALE = {'de': 'de_CH', 'en': 'en_GB', 'fr': 'fr_CH', 'it': 'it_CH'}
 
 META = {
@@ -101,7 +101,7 @@ def head_block(lang):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<script>window.PAGE_LANG="{lang}";window.LANG_URLS={langs_js};window.BASE="{'' if lang == 'en' else '../'}";</script>'''
+<script>window.PAGE_LANG="{lang}";window.LANG_URLS={langs_js};window.BASE="{'' if lang == 'de' else '../'}";</script>'''
 
 
 ASSET_RE = re.compile(r'((?:src|href)=")(?!https?:|data:|#|mailto:|tel:|/|\.\./|\$\{)([^"]+\.(?:png|jpe?g|ico|webmanifest|webp|svg)(?:\?[^"]*)?)"')
@@ -117,7 +117,7 @@ def build(lang, I):
     # Sprachumschalter: aktive Sprache markieren
     doc = doc.replace('<button data-lang="de" class="on">DE</button>', '<button data-lang="de">DE</button>')
     doc = doc.replace(f'<button data-lang="{lang}">', f'<button data-lang="{lang}" class="on">', 1)
-    if lang != 'en':
+    if lang != 'de':
         doc = ASSET_RE.sub(lambda m: m.group(1) + '../' + m.group(2) + '"', doc)
     path = os.path.join(ROOT, OUT[lang])
     os.makedirs(os.path.dirname(path) or ROOT, exist_ok=True)
